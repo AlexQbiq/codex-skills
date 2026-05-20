@@ -38,12 +38,14 @@ The Studio repo should keep these files at its root:
 
 - `.codex-working-agreement.md`
 - `.codex-studio-editor-memory.md`
+- `.codex-collaboration-suggestions.md`
+- `.codex-qbiq-9901-notes.md`
 
-Starter versions live in [../templates/studio](../templates/studio). They preserve the reusable Studio debugging structure without exposing private ticket or customer-specific details.
+Shared versions live in [../templates/studio](../templates/studio). They include the historical Studio debugging context collected so far.
 
 The working agreement should capture team-level rules for Codex work in the repo.
 
-The memory file should capture reusable debugging knowledge only. It is not a transcript and should not become noisy.
+The memory file should capture reusable debugging knowledge. It is not a transcript, but concrete historical repro data belongs there when it shortens future investigations.
 
 ## Recommended Prompt
 

@@ -1,60 +1,47 @@
 # Studio Context Migration
 
-The `studio-editor-memory-workflow` skill is the loader and maintenance workflow. The valuable Studio debugging context lives in the Studio UI repository notes:
+The `studio-editor-memory-workflow` skill is the loader and maintenance workflow. The valuable Studio debugging context is the set of `.codex-*.md` notes that should live in the Studio UI repository root.
+
+This repository now carries the shared historical Studio context under `templates/studio/` so a new machine can bootstrap the same working memory quickly.
+
+## Included Context Files
+
+Copy these into the Studio UI repo root:
 
 - `.codex-working-agreement.md`
+  - team working agreement for Codex tasks
+  - task templates
+  - escalation and review standards
 - `.codex-studio-editor-memory.md`
+  - architecture map
+  - stretch data flow
+  - symptom-to-file triage table
+  - fragile patterns
+  - known root causes
+  - historical resolved issues
+  - starter prompt and maintenance rules
+- `.codex-collaboration-suggestions.md`
+  - collaboration habits that make Studio debugging faster and safer
+  - fix-boundary, done-definition, branch-hygiene, and PR shortcut guidance
+- `.codex-qbiq-9901-notes.md`
+  - concrete repeatable circulation-collapse e2e notes
+  - disposable design and snapshot reset flow
 
-This split is intentional:
+## Install Context Into A Studio Repo
 
-- the skill can be shared and installed from this public repository
-- the live memory can stay with the private Studio source tree
-- each developer can use a different local Studio path
-
-## What Was Migrated Here
-
-This repository includes portable starter templates under `templates/studio/`.
-
-They preserve the reusable structure and general Studio debugging heuristics:
-
-- investigation workflow
-- architecture map
-- stretch data flow
-- symptom-to-file triage table
-- fragile patterns
-- root-cause categories
-- context delta checklist
-- starter prompt
-- memory maintenance rules
-
-## What Should Stay In The Studio Repo
-
-Keep private or highly specific project data in the Studio UI repository:
-
-- real design ids
-- snapshot ids
-- Jira-only details
-- customer-specific repro notes
-- internal implementation history that should not be public
-- exact resolved issue log when it names private tickets
-
-## Install Templates Into A Studio Repo
-
-From this repository:
+From this repository, after `CODEX_STUDIO_REPO` points to the Studio UI checkout:
 
 ```bash
-cp templates/studio/.codex-working-agreement.md "$CODEX_STUDIO_REPO/.codex-working-agreement.md"
-cp templates/studio/.codex-studio-editor-memory.md "$CODEX_STUDIO_REPO/.codex-studio-editor-memory.md"
+./scripts/install-studio-context.sh --studio-repo "$CODEX_STUDIO_REPO"
 ```
 
 PowerShell:
 
 ```powershell
-Copy-Item .\templates\studio\.codex-working-agreement.md "$env:CODEX_STUDIO_REPO\.codex-working-agreement.md"
-Copy-Item .\templates\studio\.codex-studio-editor-memory.md "$env:CODEX_STUDIO_REPO\.codex-studio-editor-memory.md"
+.\scripts\install-studio-context.ps1 -StudioRepo $env:CODEX_STUDIO_REPO
 ```
 
-If the Studio repo already has these files, merge manually rather than overwriting them.
+If the Studio repo already has newer versions of these notes, merge manually rather than overwriting them.
 
 ## Mac Setup
 
@@ -64,10 +51,23 @@ On macOS, set `CODEX_STUDIO_REPO` to the local Studio UI checkout:
 export CODEX_STUDIO_REPO="$HOME/Code/ui"
 ```
 
-Then ask Codex:
+Then install the shared context:
+
+```bash
+./scripts/install-studio-context.sh --studio-repo "$CODEX_STUDIO_REPO"
+```
+
+After that, ask Codex:
 
 ```text
 Use $studio-editor-memory-workflow for this Studio Editor task.
 ```
 
-Codex should resolve the Studio repo and load the two repo notes before starting.
+Codex should resolve the Studio repo and load the working agreement, Studio memory, and any supplemental `.codex-*` notes before starting.
+
+## Maintenance Model
+
+- Keep the full shared Studio context in this repository.
+- Copy or sync the files into each local Studio UI checkout.
+- When a Studio task produces reusable learning, update the Studio repo note first, then promote the updated note back into this repository.
+- Prefer durable codebase lessons over noisy ticket diaries, but keep concrete historical repro data when it materially shortens future debugging.

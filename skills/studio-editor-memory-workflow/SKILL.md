@@ -7,6 +7,8 @@ description: Use when working on Studio Editor tasks, especially bugs around `Ci
 
 This skill shortens Studio Editor bug threads by turning the shared repo notes into explicit starting context. It is designed to work on both Windows and macOS without hardcoded machine paths.
 
+The skill itself is the loader. The valuable knowledge lives in the Studio repo notes and can be bootstrapped from the rich templates in `codex-skills/templates/studio`.
+
 ## Repository Resolution
 
 Resolve the Studio repo in this order:
@@ -27,8 +29,11 @@ The repo must contain `.codex-working-agreement.md` or `.codex-studio-editor-mem
 1. Resolve the Studio repo path.
 2. Read `<studio-repo>/.codex-working-agreement.md`.
 3. Read `<studio-repo>/.codex-studio-editor-memory.md`.
-4. Treat those files as the durable starting context for the thread.
-5. Focus the task using only the new `Context delta` supplied by the user.
+4. If present, read supplemental Studio notes:
+   - `<studio-repo>/.codex-collaboration-suggestions.md`
+   - `<studio-repo>/.codex-qbiq-9901-notes.md`
+5. Treat those files as the durable starting context for the thread.
+6. Focus the task using only the new `Context delta` supplied by the user.
 
 If `.codex-working-agreement.md` is missing, continue with the task and tell the user the agreement note was not found.
 
@@ -93,3 +98,4 @@ Branch notes: <optional>
 - The memory source is the repo note, not hidden cross-thread state.
 - This skill is a shortcut for loading and maintaining that note.
 - `CODEX_STUDIO_REPO` is the preferred cross-machine override for nonstandard repo locations.
+- If a new reusable Studio note emerges, keep it as a `.codex-*.md` file in the Studio repo and add a matching template to `codex-skills/templates/studio`.

@@ -121,12 +121,24 @@ The skill looks for these files in the Studio repo root:
 
 - `.codex-working-agreement.md`
 - `.codex-studio-editor-memory.md`
+- `.codex-collaboration-suggestions.md` when present
+- `.codex-qbiq-9901-notes.md` when present
 
 If the memory file is missing, Codex should recreate it with stable section names instead of relying on hidden thread state.
 
 See [docs/studio-developer-guide.md](docs/studio-developer-guide.md) for the recommended Studio team workflow.
 
-This public repository includes safe starter templates in [templates/studio](templates/studio). The live, private Studio memory should still live in the Studio UI repo itself. See [docs/studio-context-migration.md](docs/studio-context-migration.md).
+This repository includes the rich shared Studio context in [templates/studio](templates/studio). Copy those files into a Studio UI checkout on each machine. See [docs/studio-context-migration.md](docs/studio-context-migration.md).
+
+Install the Studio context files:
+
+```bash
+./scripts/install-studio-context.sh --studio-repo "$CODEX_STUDIO_REPO"
+```
+
+```powershell
+.\scripts\install-studio-context.ps1 -StudioRepo $env:CODEX_STUDIO_REPO
+```
 
 ## PR Workflow Configuration
 
@@ -171,14 +183,17 @@ Use $github-pr-workflow targeting main.
 
 ```text
 .
-├── install.ps1
-├── install.sh
-├── templates
-│   └── studio
-├── skills
-│   ├── github-pr-workflow
-│   └── studio-editor-memory-workflow
-└── README.md
+|-- install.ps1
+|-- install.sh
+|-- templates
+|   `-- studio
+|-- scripts
+|   |-- install-studio-context.ps1
+|   `-- install-studio-context.sh
+|-- skills
+|   |-- github-pr-workflow
+|   `-- studio-editor-memory-workflow
+`-- README.md
 ```
 
 ## Maintenance Guidelines
