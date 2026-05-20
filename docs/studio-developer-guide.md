@@ -14,6 +14,8 @@ Studio Editor bugs often need context that lives outside a single ticket:
 
 The `studio-editor-memory-workflow` skill makes Codex load that durable context before changing code.
 
+The full shared memory is browseable at [studio-editor-memory.md](studio-editor-memory.md), including the `Editor Architecture` section.
+
 ## First-Time Setup
 
 Install the skills from this repo, then point Codex at your Studio UI repo when it is not the current workspace.
@@ -38,10 +40,14 @@ The Studio repo should keep these files at its root:
 
 - `.codex-working-agreement.md`
 - `.codex-studio-editor-memory.md`
+- `.codex-collaboration-suggestions.md`
+- `.codex-qbiq-9901-notes.md`
+
+Shared versions live in [../templates/studio](../templates/studio). They include the historical Studio debugging context collected so far.
 
 The working agreement should capture team-level rules for Codex work in the repo.
 
-The memory file should capture reusable debugging knowledge only. It is not a transcript and should not become noisy.
+The memory file should capture reusable debugging knowledge. It is not a transcript, but concrete historical repro data belongs there when it shortens future investigations.
 
 ## Recommended Prompt
 
