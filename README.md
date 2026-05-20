@@ -126,6 +126,8 @@ If the memory file is missing, Codex should recreate it with stable section name
 
 See [docs/studio-developer-guide.md](docs/studio-developer-guide.md) for the recommended Studio team workflow.
 
+This public repository includes safe starter templates in [templates/studio](templates/studio). The live, private Studio memory should still live in the Studio UI repo itself. See [docs/studio-context-migration.md](docs/studio-context-migration.md).
+
 ## PR Workflow Configuration
 
 The PR skill supports environment variables so teams can tune defaults without editing the skill.
@@ -171,6 +173,8 @@ Use $github-pr-workflow targeting main.
 .
 ├── install.ps1
 ├── install.sh
+├── templates
+│   └── studio
 ├── skills
 │   ├── github-pr-workflow
 │   └── studio-editor-memory-workflow

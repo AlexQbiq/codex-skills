@@ -39,6 +39,8 @@ The Studio repo should keep these files at its root:
 - `.codex-working-agreement.md`
 - `.codex-studio-editor-memory.md`
 
+Starter versions live in [../templates/studio](../templates/studio). They preserve the reusable Studio debugging structure without exposing private ticket or customer-specific details.
+
 The working agreement should capture team-level rules for Codex work in the repo.
 
 The memory file should capture reusable debugging knowledge only. It is not a transcript and should not become noisy.
