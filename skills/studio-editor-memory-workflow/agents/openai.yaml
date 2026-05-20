@@ -1,0 +1,4 @@
+interface:
+  display_name: "Studio Editor Memory"
+  short_description: "Load and maintain Studio bug context"
+  default_prompt: "Use $studio-editor-memory-workflow for this Studio Editor task."
