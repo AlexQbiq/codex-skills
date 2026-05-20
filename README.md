@@ -130,6 +130,8 @@ See [docs/studio-developer-guide.md](docs/studio-developer-guide.md) for the rec
 
 This repository includes the rich shared Studio context in [templates/studio](templates/studio). Copy those files into a Studio UI checkout on each machine. See [docs/studio-context-migration.md](docs/studio-context-migration.md).
 
+For easier browsing in GitHub, the full Studio memory is also mirrored as [docs/studio-editor-memory.md](docs/studio-editor-memory.md). The `Editor Architecture` section starts there.
+
 Install the Studio context files:
 
 ```bash

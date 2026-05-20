@@ -14,6 +14,8 @@ Studio Editor bugs often need context that lives outside a single ticket:
 
 The `studio-editor-memory-workflow` skill makes Codex load that durable context before changing code.
 
+The full shared memory is browseable at [studio-editor-memory.md](studio-editor-memory.md), including the `Editor Architecture` section.
+
 ## First-Time Setup
 
 Install the skills from this repo, then point Codex at your Studio UI repo when it is not the current workspace.

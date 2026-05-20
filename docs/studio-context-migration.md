@@ -4,6 +4,8 @@ The `studio-editor-memory-workflow` skill is the loader and maintenance workflow
 
 This repository now carries the shared historical Studio context under `templates/studio/` so a new machine can bootstrap the same working memory quickly.
 
+For human browsing, the full Studio memory is mirrored at [studio-editor-memory.md](studio-editor-memory.md). The installable source of truth remains `templates/studio/.codex-studio-editor-memory.md`.
+
 ## Included Context Files
 
 Copy these into the Studio UI repo root:
