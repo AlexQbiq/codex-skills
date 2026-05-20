@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub PR Workflow"
+  short_description: "Commit, push, create PR, review, and follow up"
+  default_prompt: "Use $github-pr-workflow to commit the current work, open or reuse a PR, wait for Copilot review, and address the review feedback."
